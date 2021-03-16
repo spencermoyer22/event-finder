@@ -1,0 +1,29 @@
+:root {
+    --primary-color: #d6e65b;
+    --secondary-color: #20c8e1;
+}
+
+#hero {
+    background-image: url("../img/background-img.jpg");
+    background-size: cover;
+    padding-bottom: 30px;
+}
+
+#form {
+    background-color: var(--primary-color);
+    opacity: .80;
+    border-radius: 25px;
+}
+
+#form h2 {
+    border-bottom: 2px solid black;
+}
+
+#form input {
+    border-radius: 15px;
+}
+
+#form-button {
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+}
