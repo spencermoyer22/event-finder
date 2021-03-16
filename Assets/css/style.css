@@ -1,0 +1,5 @@
+#hero {
+    background-image: url("../img/background-img.jpg");
+    background-size: cover;
+    padding-bottom: 30px;
+}
