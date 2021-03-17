@@ -27,3 +27,15 @@
     background-color: var(--secondary-color);
     border-radius: 15px;
 }
+
+#map {
+    height: 75%;
+    width: 95%;
+    margin: 0 auto;
+  }
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }

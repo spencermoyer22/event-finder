@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Directions</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
-<body class="has-background-warning-light">
-    <div id="map-directions"></div>
+<body>
+    <section id="hero">
+        <header class="has-text-centered">
+            <h1 class="title is-size-1 is-size-2-mobile py-1">Event Finder</h1>
+        </header>
+    </section>
+    <div class = "title is-size-2 is-size-3-mobile py-1" id = "directions-element">Directions to your event:</div>
+    <select id = "start">
+        <option value = "tucson, az">Tucson</option>
+        <option value = "chicago, il">Chicago</option>
+        </select>
+
+    <select id = "end">
+        <option value = "chicago, il">Chicago</option>
+        <option value = "tucson, az">Tucson</option>
+    </select>
+
+    <div class = "columns is-justify-content-center is-mobile" id = "map"></div>
+    
+    <script 
+    async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBlNIHoJ1O1S0XMqeTTKXXISgTn6y3rbA&callback=initMap">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="Assets/js/search.js"></script>
 </body>
 </html>
