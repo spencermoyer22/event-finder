@@ -28,6 +28,11 @@
     border-radius: 15px;
 }
 
+
+.modal-button {
+    background-color: var(--secondary-color);
+}
+
 #map {
     height: 75%;
     width: 95%;
@@ -39,3 +44,4 @@
     margin: 0;
     padding: 0;
   }
+
