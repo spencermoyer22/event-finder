@@ -41,7 +41,7 @@ var createButtonElements = function(array) {
         // create button element
         $("<button>")
         .attr("id", i)
-        .addClass("button is-light my-1 is-flex is-justify-content-space-between")
+        .addClass("btn-event button is-light my-1 is-flex is-justify-content-space-between")
         .appendTo("#button-container");
 
         // create text elements for button
@@ -54,7 +54,34 @@ var createButtonElements = function(array) {
         .text(dateFormat)
         .appendTo("#" + i);
     }
+
+    // open modal on event button click
+    $(".btn-event").on("click", function() {
+        // create index for modal content function
+        var index = $(this).attr("id");
+
+        // send index and array to modal content function
+        modalContent(index, array);
+
+        $(".modal").addClass("is-active");
+    })
+
+    // close modal
+    $(".modal-background").on("click", function() {
+        $(".modal").removeClass("is-active");
+    }) 
+
+    $(".delete").on("click", function() {
+        $(".modal").removeClass("is-active");
+    }) 
 };
+
+var modalContent = function(index, array) {
+    console.log(index);
+    console.log(array);
+
+    // create elements to add to modal
+}
 
 $("#form-button").on("click", function() {
     event.preventDefault();

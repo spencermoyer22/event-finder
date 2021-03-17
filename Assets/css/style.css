@@ -27,3 +27,7 @@
     background-color: var(--secondary-color);
     border-radius: 15px;
 }
+
+.modal-button {
+    background-color: var(--secondary-color);
+}
