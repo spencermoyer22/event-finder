@@ -25,19 +25,19 @@
             <div class="field">
                 <label class="label">City Name:</label>
                 <div class="control">
-                    <input id="city" class="input is-medium" type="text" placeholder="City" id = "search-city" />
+                    <input id="city" class="input is-medium" type="text" placeholder="City" />
                 </div>
             </div>         
             <div class="field">
                 <label class="label">Artist:</label>
                 <div class="control">
-                    <input id="classification" class="input is-medium" type="text" placeholder="Artist" id = "search-artist"/>
+                    <input id="classification" class="input is-medium" type="text" placeholder="Artist"/>
                 </div>
             </div>
             <div class="field">
                 <label class="label">Venue:</label>
                 <div class="control">
-                    <input id="venue" class="input is-medium" type="text" placeholder="Genre" id = "search-artist"/>
+                    <input id="venue" class="input is-medium" type="text" placeholder="Venue"/>
                 </div>
             </div>
             <button id="form-button" class="button p-3">Search</button> 
@@ -56,12 +56,16 @@
             <button class="delete" aria-label="close"></button>
           </header>
           <section class="modal-card-body">
-            <h4 class="event-name"></h4>
-            <p class="venue-name"></p>
-            <p class="date"></p>
+            <p class="has-text-weight-bold my-1">Artist:</p>
+            <h4 id="event-name" class=""></h4>
+            <p class="has-text-weight-bold my-1">Venue:</p>
+            <p id="venue-name"></p>
+            <p class="has-text-weight-bold my-1">Date:</p>
+            <p id="date"></p>
+            <p class="has-text-centered has-text-weight-medium is-italic is-size-7 py-2">Enter you address in the input bar below to get directions</p>
           </section>
           <footer class="modal-card-foot">
-            
+            <input id="address" class="input" type="text" placeholder="Enter your address" />
             <button class="modal-button button">Get Directions</button>
           </footer>
         </div>
