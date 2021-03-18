@@ -21,7 +21,6 @@ var searchEvents = function () {
 };
 
 var createButtonElements = function(array) {
-    console.log(array);
     // if no array is created for events then say to enter proper data
     if (!array._embedded) {
         // create modal to display alert
@@ -34,10 +33,10 @@ var createButtonElements = function(array) {
     for (var i = 0; i < array._embedded.events.length; i++) {
         // alter date variable
         var date = array._embedded.events[i].dates.start.localDate;
-        var newDate = date.split("-")
-        var dateFormat = newDate[1] + "-" + newDate[2] + "-" + newDate[0];
+        
+        // alter date in function
+        var newDate = formatDate(date);
 
-        console.log(array._embedded.events[i]._embedded.venues[0].name);
         // create button element
         $("<button>")
         .attr("id", i)
@@ -51,36 +50,81 @@ var createButtonElements = function(array) {
         .appendTo("#" + i);
 
         $("<p>")
-        .text(dateFormat)
+        .text(newDate)
         .appendTo("#" + i);
     }
 
     // open modal on event button click
     $(".btn-event").on("click", function() {
-        // create index for modal content function
+        // create event array index for modal content function
         var index = $(this).attr("id");
+        var eventArray = array._embedded.events[index];
+
+        // update modal button id to use as index when getting venue location later
+        $(".modal-button").attr("index", index);
 
         // send index and array to modal content function
-        modalContent(index, array);
+        modalContent(index, eventArray);
 
+        // open modal by adding is-active class
         $(".modal").addClass("is-active");
     })
 
-    // close modal
+    // close modal by clicking anywhere in background
     $(".modal-background").on("click", function() {
         $(".modal").removeClass("is-active");
     }) 
 
+    // close modal by clicking x icon
     $(".delete").on("click", function() {
         $(".modal").removeClass("is-active");
     }) 
-};
 
-var modalContent = function(index, array) {
-    console.log(index);
+    // save address and venue to local storage for directions api
+    $(".modal-button").on("click", function() {
+    // get address from input value
+    var address = $("#address").val();
+
+    // create index from id to get correct event address
+    var eventIndex = $(this).attr("index");
+
+    //get venue name with index
+    var venueLocation = array._embedded.events[eventIndex]._embedded.venues[0].name;
+    
+    console.log(address);
+    console.log(venueLocation);
     console.log(array);
 
-    // create elements to add to modal
+    // create object with origin and destination for directions api
+    var directions = {
+        origin: address,
+        destination: venueLocation
+    };
+
+    // save object to localStorage
+    localStorage.setItem("address", JSON.stringify(directions));
+
+    // close modal
+    $(".modal").removeClass("is-active");
+})
+};
+
+var modalContent = function(index, eventArray) {
+
+    // give modal elements text content
+    $("#event-name").text(eventArray.name);
+
+    $("#venue-name").text(eventArray._embedded.venues[0].name);
+
+    $("#date").text(formatDate(eventArray.dates.start.localDate));
+}
+
+var formatDate = function(date) {
+    // split date into array and rearrange for correct format
+    var newDate = date.split("-")
+    var dateFormat = newDate[1] + "-" + newDate[2] + "-" + newDate[0];
+    
+    return dateFormat;
 }
 
 $("#form-button").on("click", function() {
