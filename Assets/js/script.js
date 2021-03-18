@@ -91,10 +91,6 @@ var createButtonElements = function(array) {
     //get venue name with index
     var venueLocation = array._embedded.events[eventIndex]._embedded.venues[0].name;
     
-    console.log(address);
-    console.log(venueLocation);
-    console.log(array);
-
     // create object with origin and destination for directions api
     var directions = {
         origin: address,
@@ -104,8 +100,8 @@ var createButtonElements = function(array) {
     // save object to localStorage
     localStorage.setItem("address", JSON.stringify(directions));
 
-    // close modal
-    $(".modal").removeClass("is-active");
+    // change to search.html page
+    location.replace("search.html");
 })
 };
 
