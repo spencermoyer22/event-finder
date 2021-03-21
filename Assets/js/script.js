@@ -24,7 +24,18 @@ var createButtonElements = function(array) {
     // if no array is created for events then say to enter proper data
     if (!array._embedded) {
         // create modal to display alert
+        $("#modal-error").addClass("is-active");
         console.log("Enter correct information");
+
+         // close modal by clicking anywhere in background
+        $(".modal-background").on("click", function() {
+            $(".modal").removeClass("is-active");
+        }) 
+
+        // close modal by clicking x icon
+        $(".delete").on("click", function() {
+            $(".modal").removeClass("is-active");
+        }) 
     }
 
     // clear old buttons
@@ -67,7 +78,7 @@ var createButtonElements = function(array) {
         modalContent(index, eventArray);
 
         // open modal by adding is-active class
-        $(".modal").addClass("is-active");
+        $("#modal-directions").addClass("is-active");
     })
 
     // close modal by clicking anywhere in background
