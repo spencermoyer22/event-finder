@@ -17,60 +17,74 @@
             </p>
         </header>
     </section>
-    <div id="form-container">
-        <form id="form" class="px-6 pb-3 mx-6 mt-5 is-flex is-flex-direction-column">
-            <div class="is-flex is-justify-content-center mb-2">
-                <h2 class="has-text-centered is-size-2 is-size-3-mobile py-2"><b>Find Your Event</b></h2>
-            </div>           
-            <div class="field">
-                <label class="label">City Name:</label>
-                <div class="control">
-                    <input id="city" class="input is-medium" type="text" placeholder="City" />
+    <div class="columns is-desktop">
+        <div id="form-container" class="column is-half">
+            <form id="form" class="px-6 pb-3 mx-6 mt-5 is-flex is-flex-direction-column">
+                <div class="is-flex is-justify-content-center mb-2">
+                    <h2 class="has-text-centered is-size-2 is-size-3-mobile py-2"><b>Find Your Event</b></h2>
+                </div>           
+                <div class="field">
+                    <label class="label">City Name:</label>
+                    <div class="control">
+                        <input id="city" class="input is-medium" type="text" placeholder="City" />
+                    </div>
+                </div>                   
+                <div class="field"> 
+                    <label class="label">Artist:</label>
+                    <div class="control">
+                        <input id="classification" class="input is-medium" type="text" placeholder="Artist"/>
+                    </div>
                 </div>
-            </div>                   
-            <div class="field"> 
-                <label class="label">Artist:</label>
-                <div class="control">
-                    <input id="classification" class="input is-medium" type="text" placeholder="Artist"/>
+                <div class="field">
+                    <label class="label">Venue:</label>
+                    <div class="control">
+                        <input id="venue" class="input is-medium" type="text" placeholder="Venue"/>
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">Venue:</label>
-                <div class="control">
-                    <input id="venue" class="input is-medium" type="text" placeholder="Venue"/>
-                </div>
-            </div>
-            <button id="form-button" class="button p-3">Search</button> 
-        </form>
-    </div> 
-    <div id="button-container" class="px-6 pb-3 mt-5 is-flex is-flex-direction-column">
-        
+                <button id="form-button" class="button p-3">Search</button> 
+            </form>
+        </div> 
+        <div id="button-container" class="px-6 pb-3 mt-5 is-flex is-flex-direction-column column is-half">
+            
+        </div>
     </div>
 
-    <!--Modal-->
-    <div class="modal m">
-        <div class="modal-background"></div>
-        <div class="modal-card mx-2">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Event Information</p>
-            <button class="delete" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-            <p class="has-text-weight-bold my-1">Artist:</p>
-            <h4 id="event-name" class=""></h4>
-            <p class="has-text-weight-bold my-1">Venue:</p>
-            <p id="venue-name"></p>
-            <p class="has-text-weight-bold my-1">Date:</p>
-            <p id="date"></p>
-            <p class="has-text-centered has-text-weight-medium is-italic is-size-7 py-2">Enter your address in the input bar below to get directions</p>
-          </section>
-          <footer class="modal-card-foot">
-            <input id="address" class="input" type="text" placeholder="Enter your address" />
-            <button class="modal-button button">Get Directions</button>
-          </footer>
+        <!--Form Error Modal-->
+        <div id="modal-error" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+            <header class="modal-card-head is-flex is-justify-content-flex-end">
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <p class="has-text-weight-bold has-text-centered">The search criteria entered did not match any upcoming events.</p>
+            </section>
+            </div>
         </div>
-      </div>
 
+        <!--Directions Modal-->
+        <div id="modal-directions" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card mx-2">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Event Information</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <p class="has-text-weight-bold my-1">Artist:</p>
+                <h4 id="event-name" class=""></h4>
+                <p class="has-text-weight-bold my-1">Venue:</p>
+                <p id="venue-name"></p>
+                <p class="has-text-weight-bold my-1">Date:</p>
+                <p id="date"></p>
+                <p class="has-text-centered has-text-weight-medium is-italic is-size-7 py-2">Enter you address in the input bar below to get directions</p>
+            </section>
+            <footer class="modal-card-foot">
+                <input id="address" class="input" type="text" placeholder="Enter your address" />
+                <button class="modal-button button">Get Directions</button>
+            </footer>
+            </div>
+        </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="Assets/js/script.js"></script>
 </body>
