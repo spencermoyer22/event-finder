@@ -16,7 +16,7 @@ This application uses the Bulma CSS framework to help style the contents of the 
 - Google Maps Directions API
 
 ## Screenshot
-![Event Finder Homepage]("./assets/img/homepage.png")
+![Event Finder Homepage]("Assets/img/homepage.png")
 
 ## Website
 https://spencermoyer22.github.io/event-finder/
